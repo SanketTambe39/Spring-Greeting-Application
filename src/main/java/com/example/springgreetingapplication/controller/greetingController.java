@@ -4,10 +4,7 @@ import com.example.springgreetingapplication.entities.Greetings;
 import com.example.springgreetingapplication.entities.User;
 import com.example.springgreetingapplication.services.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +30,10 @@ public class greetingController {
     public List<Greetings> getAllGreetings()
     {
         return greetingService.getAllGreetings();
+    }
+    @DeleteMapping("/delete")
+    public void deleteGreeting(@RequestParam(value = "id") Long id)
+    {
+        greetingService.deleteGreeting(id);
     }
 }

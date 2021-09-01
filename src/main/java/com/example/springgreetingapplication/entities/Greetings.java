@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Greetings {
     @Id
     private final long id;
-    private final String message;
+    private String message;
 
     public Greetings() {
         id = 0;

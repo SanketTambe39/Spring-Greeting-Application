@@ -24,11 +24,16 @@ public class greetingService implements IGreetingService{
     }
 
     @Override
-    public Greetings getGreetingById(long id) {
+    public Greetings getGreetingById(Long id) {
         return greetingRepository.findById(id).get();
     }
     @Override
     public List<Greetings> getAllGreetings() {
         return greetingRepository.findAll();
+    }
+    @Override
+    public void deleteGreeting(Long id)
+    {
+        greetingRepository.deleteById(id);
     }
 }
