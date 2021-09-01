@@ -13,13 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/greeting")
 public class greetingController {
     @Autowired
-    public IGreetingService greetingService;
+    private IGreetingService greetingService;
 
     @GetMapping(value = {"","/","/home"})
-    public Greetings greetings(@RequestParam(value = "name", defaultValue = "world") String name)
+    public Greetings greeting(@RequestParam(value = "name", defaultValue = "world") String name)
     {
         User user = new User();
         user.setFirstName(name);
         return greetingService.addGreeting(user);
+    }
+
+    @GetMapping("/greetingid")
+    public Greetings getGreetingById(@RequestParam(value = "id") Long id)
+    {
+        return greetingService.getGreetingById(id);
     }
 }

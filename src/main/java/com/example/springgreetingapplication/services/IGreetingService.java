@@ -5,4 +5,5 @@ import com.example.springgreetingapplication.entities.User;
 
 public interface IGreetingService {
     Greetings addGreeting(User user);
+    Greetings getGreetingById(long id);
 }
